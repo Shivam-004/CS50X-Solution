@@ -1,0 +1,4 @@
+0. DIM MIN 3 - DIM MAX 9, <3,4,5,6,7,8,9>
+1. 2dimensional array
+2. greet function
+3. init, draw, move
