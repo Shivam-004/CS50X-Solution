@@ -1,0 +1,29 @@
+1.  <stdint.h> is a header file declaring various integer types with certain guaranteed widths.
+
+2.  It makes clear that you intend to use the data a specific way.
+	for example uint24_t means an integer that is exactly 24 bits wide
+	
+3.  A BYTE i defined as having 8 bit, DWORD and LONG having 32bit and WORD is defined with 16 bit.
+
+4.  The first two bytes of a BMP is a WORD and denotes bfType, which specifies the file type. It must be 
+    set to the signature word BM (0x4D42) to indicate bitmap.
+    
+5.  bfSize holds the file size of the bitmap file, while biSize is defined as the size of the Bitmapinfoheader structure.
+
+6.  A negative value for biHeight suggests that the vertical orientation of the image is upside-down.
+
+7.  The biBitCount member of the BITMAPINFOHEADER structure determines the number of
+	bits that define each pixel and the maximum number of colors in the bitmap.
+	
+8.  fopen will return NULL if it cannot create the outfile to write to. I don't know why that might happen.
+
+9.  I think it is because the program is reading in 1 RGB triple at a time. The header comments seem to confirm.
+
+10. biWidth is the width of the bitmap in pixels. If the width is 3, padding is necessary since
+	the scanline must be a multiple of 4.
+	3 pixels * 3 bytes per pixel = 9 bytes. 3 bytes are added to bring the scanline to 12 bytes.
+	I don't understand the math, though
+	
+11. fseek is used to move a position pointer through a file stream.
+
+12. SEEK_CUR indicates the current position of the position pointer.
